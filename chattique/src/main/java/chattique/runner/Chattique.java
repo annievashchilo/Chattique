@@ -33,7 +33,7 @@ public class Chattique extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         chatWindow = new javax.swing.JTextArea();
         inputField = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        clearButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,10 +67,10 @@ public class Chattique extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Clear");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        clearButton.setText("Clear");
+        clearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                clearButtonActionPerformed(evt);
             }
         });
 
@@ -89,7 +89,7 @@ public class Chattique extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(sendButton)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)
+                        .addComponent(clearButton)
                         .addGap(51, 51, 51))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -101,7 +101,7 @@ public class Chattique extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inputField, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sendButton)
-                    .addComponent(jButton1))
+                    .addComponent(clearButton))
                 .addContainerGap())
         );
 
@@ -128,16 +128,18 @@ public class Chattique extends javax.swing.JFrame {
 
     private void sendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendButtonActionPerformed
         // TODO add your handling code here:
+        String user = "User:";
         if (!inputField.getText().isEmpty()) {
+            chatWindow.append(user);
             chatWindow.append(inputField.getText());
             chatWindow.append("\n");
             inputField.setText("");
         }
     }//GEN-LAST:event_sendButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
         chatWindow.setText("");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_clearButtonActionPerformed
 
     private void inputFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputFieldKeyReleased
         if (evt.getKeyCode() == 10 ) {
@@ -179,8 +181,8 @@ public class Chattique extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea chatWindow;
+    private javax.swing.JButton clearButton;
     private javax.swing.JTextField inputField;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton sendButton;
